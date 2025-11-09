@@ -217,3 +217,7 @@ setContent {
     NavGraph(navController)
 }
 ```
+> 🎯 **Resultado final**
+✅ Cada pantalla tiene su AppBar roja con texto blanco.
+✅ Las pantallas secundarias muestran una flecha de retroceso funcional.
+✅ Todo es reutilizable y limpio.
