@@ -73,4 +73,4 @@ fun ScaffoldExample() {
     }
 }
 ```
-
+![ejemplo de scaffold](img/Implementacion_Scaffold.png)

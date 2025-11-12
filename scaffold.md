@@ -109,4 +109,3 @@ fun CustomContent(padding: PaddingValues) {
 }
 ```
 
-![Implementacionn de scaffold](img/Implementacion_Scaffold.png)
