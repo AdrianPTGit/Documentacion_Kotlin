@@ -64,7 +64,7 @@ Durante cada cambio de estado, se recorre de arriba abajo la lista de estados, y
 ```xml 
 android:lStar="50" 
 ```
-    - `android:state_pressed`
+- `android:state_pressed`
             Booleano. Es "true" si se usa este elemento cuando se presiona el objeto, como cuando se toca un botón o se hace clic en él. Es "false" si se usa este elemento en el estado predeterminado, sin presionar.
     - `android:state_focused`
             Booleano. Es "`true`" si se usa este elemento cuando el objeto está enfocado, como cuando un botón se destaca con la bola de seguimiento o el pad direccional. 
