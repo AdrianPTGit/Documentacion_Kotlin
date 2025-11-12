@@ -109,3 +109,4 @@ fun CustomContent(padding: PaddingValues) {
 }
 ```
 
+[Ejemplo de `scaffold`](Ejemplo_de_scaffold_de_documentacion_android.md)
