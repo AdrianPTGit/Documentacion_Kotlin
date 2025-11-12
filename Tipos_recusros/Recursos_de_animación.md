@@ -183,3 +183,159 @@ val set: AnimatorSet = AnimatorInflater.loadAnimator(myContext, R.animator.prope
 - **referencia del recurso:**
     En Java: `R.anim.filename`
     En XML: `@[package:]anim/filename` 
+#### Sintaxis
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<InterpolatorName xmlns:android="http://schemas.android.com/apk/res/android"
+    android:attribute_name="value"
+    />
+
+```
+
+- Si no aplicas ningún atributo, tu interpolador funcionará exactamente igual a como lo hacen los que proporciona la plataforma y que se enumeran en la tabla anterior.
+- **elementos:**
+     > Observa que cada implementación de `Interpolator`, cuando se define en XML, tiene un nombre que comienza con una letra minúscula.
+
+    - `<accelerateDecelerateInterpolator>`
+        La tasa de cambio comienza y finaliza lentamente, pero se acelera en la mitad.
+
+        Sin atributos.
+    - `<accelerateInterpolator>`
+        La tasa de cambio comienza lentamente y, luego, se acelera.
+
+- **Atributos:**
+
+    - `android:factor`
+        Número de punto flotante. Es la tasa de aceleración. El valor predeterminado es `1`.
+
+    - `<anticipateInterpolator>`
+        El cambio comienza hacia atrás y, luego, se lanza hacia adelante.
+
+    - **Atributos**:
+
+        `android:tension`
+            Número de punto flotante. Es la tensión que se debe aplicar. El valor predeterminado es 2.
+
+    <anticipateOvershootInterpolator>
+        El cambio comienza hacia atrás, se lanza hacia adelante, supera el valor objetivo y luego se establece en el valor final.
+
+    - **Atributos:**
+
+        - `android:tension`
+            Número de punto flotante. Es la tensión que se debe aplicar. El valor predeterminado es 2.
+        - `android:extraTension`
+            Número de punto flotante. Es la cantidad por la cual multiplicar la tensión. El valor predeterminado es `1.5`.
+
+    - `<bounceInterpolator>`
+        El cambio rebota en el final.
+
+        **Sin atributos**
+    - `<cycleInterpolator>`
+        Repite la animación durante una cantidad específica de ciclos. La tasa de cambio sigue un patrón sinusoidal.
+
+        - **Atributos:**
+
+        `android:cycles`
+            Entero. Es la cantidad de ciclos. El valor predeterminado es `1`.
+
+    - `<decelerateInterpolator>`
+        La tasa de cambio comienza rápidamente y, luego, se desacelera.
+
+-Atributos:
+
+- `android:factor`
+    Número de punto flotante. Es la tasa de desaceleración. El valor predeterminado es` 1`.
+
+    `<linearInterpolator>`
+        La tasa de cambio es constante.
+
+    **Sin atributos.**
+    `<overshootInterpolator>`
+        El cambio se lanza hacia adelante, supera el último valor y luego regresa.
+
+ - **Atributos:**
+
+    - `android:tension`
+            Número de punto flotante. Es la tensión que se debe aplicar. El valor predeterminado es `2`.
+
+**ejemplo**:
+
+Archivo en formato XML guardado en `res/anim/my_overshoot_interpolator.xml`:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<overshootInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tension="7.0"
+    />
+
+```
+
+## Animación de fotogramas
+
+> Se trata de una animación definida en XML que muestra una secuencia de imágenes en orden, como una película.
+
+- **ubicación del archivo:**
+    `res/drawable/filename.xml`
+    Se utiliza el nombre del archivo como ID de recurso.
+- **tipo de datos de recursos compilados:**
+    Puntero del recurso a un AnimationDrawable
+**referencia del recurso:** 
+    - En Java: `R.drawable.filename`
+    - En XML: `@[package:]drawable.filename`
+**- sintaxis:**
+
+- sintaxis:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot=["true" | "false"] >
+    <item
+        android:drawable="@[package:]drawable/drawable_resource_name"
+        android:duration="integer" />
+</animation-list>
+```
+- **elementos:**
+
+    - `<animation-list>`
+        Obligatorio. Debe ser el elemento raíz. Contiene uno o más elementos `<item>`.
+
+- **Atributos:**
+
+    - `android:oneshot`
+            `Booleano`. Es "`true`" si deseas realizar la animación una vez y "`false`" si quieres repetir la animación indefinidamente.
+
+    - `<item>`
+        Un solo marco de animación. Tiene que ser un elemento secundario de un elemento `<animation-list>`.
+
+- **Atributos:**
+
+    - `android:drawable`
+            Recurso de elementos de diseño. El elemento de diseño que corresponde usar para este marco.
+    - `android:duration`
+            Entero. El tiempo durante el que se mostrará este marco, en milisegundos.
+
+- **ejemplo:**
+
+Archivo en formato XML guardado en `res/drawable/rocket_thrust.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/rocket_thrust1" android:duration="200" />
+    <item android:drawable="@drawable/rocket_thrust2" android:duration="200" />
+    <item android:drawable="@drawable/rocket_thrust3" android:duration="200" />
+</animation-list>
+```
+
+El siguiente código de la aplicación establece la animación como fondo para una `View` y, luego, reproduce la animación:
+
+```kotlin
+val rocketImage: ImageView = findViewById(R.id.rocket_image)
+rocketImage.setBackgroundResource(R.drawable.rocket_thrust)
+
+val rocketAnimation = rocketImage.background
+if (rocketAnimation is Animatable) {
+    rocketAnimation.start()
+}
+```

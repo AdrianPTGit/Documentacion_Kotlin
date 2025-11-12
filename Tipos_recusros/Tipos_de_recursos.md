@@ -1,8 +1,8 @@
-### Recursos de animación
+### [Recursos de animacion](Recursos_de_animación.md)
 - Definen las animaciones determinadas previamente.
 Las animaciones de interpolación se guardan en `res/anim/` y se accede a ellas desde la clase R.anim.
 - Las animaciones de marco se guardan en `res/drawable/` y se accede a ellas desde la clase R.drawable.
-### Recurso de lista de estados de color
+### [Recurso de lista de estados de color ](Recurso_lista_de_color.md)
 - Define un recurso de color que cambia según el estado View.
 - Se guardan en `res/color/` y se accede a ellos desde la clase `R.color`.
 ### Recursos de elementos de diseño
