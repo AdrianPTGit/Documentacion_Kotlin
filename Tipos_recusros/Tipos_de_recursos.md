@@ -17,10 +17,10 @@ Las animaciones de interpolación se guardan en `res/anim/` y se accede a ellas 
 ### Recursos de cadenas
 - Definen cadenas, arrays de cadenas y plurales, e incluyen formato y estilo de cadenas.
 - Se guardan en `res/values/` y se accede a ellos desde las clases `R.string`, `R.array` y `R`.plurals.
-### Recurso de estilo
+###  [Recurso de estilo](Recurso_de_estilo.md)
 - Define el aspecto y el formato de los elementos de la IU.
 - Se guardan en `res/values/` y se accede a ellos desde la clase `R.style`.
-### Recursos de fuente
+###  [Recursos de fuente](Recurso_de_fuente.md)
 - Definen las familias de fuentes y, además, incluyen las fuentes predeterminadas en XML.
 - Se guardan en `res/font/` y se accede a ellos desde la clase `R.font`.
 ### Más tipos de recursos
@@ -41,3 +41,4 @@ Las animaciones de interpolación se guardan en `res/anim/` y se accede a ellas 
     - `Array escrito`
        -  Es un recurso XML que proporciona un TypedArray que puedes usar para un array de elementos de diseño.
 
+https://developer.android.com/guide/topics/resources/available-resources?hl=es-419
